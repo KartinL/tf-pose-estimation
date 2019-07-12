@@ -101,3 +101,6 @@ _Remember_ this goes in your `me\week 6` directory.
 ## Deadline
 19th of July 2019. Marking will be done in the labs on the day.
 You must commit and push your results BEFORE the end of the lesson (2pm).
+
+
+TEST COMMIT
