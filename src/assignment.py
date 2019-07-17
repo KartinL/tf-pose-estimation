@@ -104,6 +104,22 @@ if __name__ == '__main__':
         humans = e.inference(image)  # list of humans
         for id, human in enumerate(humans):
 
+            # Create variable to store y coordinate information
+            # Decided to use nose as it is a singukar point 
+            nose = 1
+            r_wrist = 1
+            l_wrist = 1
+
+            # Create loop to run through all keys and thier values
+            for key, val in human.body_parts.items():
+
+                # If Nose is the current body part
+                if POSE_COCO_BODY_PARTS[key] == "Nose":
+                    # The variable nose = the y cordinate of "Nose"
+                    nose = val.y
+
+
+
             # TODO ensure it only does this when someone is hailing a taxi.
             # That is, an arm is above their head.
             hail_taxi(image)
@@ -123,3 +139,7 @@ if __name__ == '__main__':
             break
 
     cv2.destroyAllWindows()
+
+
+    #test co 
+
