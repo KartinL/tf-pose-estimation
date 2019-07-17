@@ -118,11 +118,25 @@ if __name__ == '__main__':
                     # The variable nose = the y cordinate of "Nose"
                     nose = val.y
 
+                # If Right Wrist ("RWrist") is the current body part
+                if POSE_COCO_BODY_PARTS[key] == "RWrist":
+                    # The variable r_wrist = the y cordinate of "RWrist"
+                    r_wrist = val.y
 
+                # If Left Wrist is the current body part
+                if POSE_COCO_BODY_PARTS[key] == "LWrist":
+                    # The variable l_wrist = the y cordinate of "LWrist"
+                    l_wrist = val.y
 
+            # Set the trigger rules for when a cab is being hailed
+            # The reason for using less than instead of greather than is
+            # the 0,0 coordinat is at the top left of the window
+            if r_wrist < nose or l_wrist < nose:
+                hail_taxi(image)
+                
             # TODO ensure it only does this when someone is hailing a taxi.
             # That is, an arm is above their head.
-            hail_taxi(image)
+            #hail_taxi(image)
 
             # Debugging statement: remove before demonstration.
             # print([(POSE_COCO_BODY_PARTS[k], v.x, v.y) for k,v in human.body_parts.items()])
@@ -139,6 +153,6 @@ if __name__ == '__main__':
             break
 
     cv2.destroyAllWindows()
-
+ 
 
     #test co  7
